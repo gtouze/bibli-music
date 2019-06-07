@@ -1,0 +1,7 @@
+{
+  "name": "bibli-music",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

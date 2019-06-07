@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Bibli-Music
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button clear (click)="authWithSpotify()" *ngIf="!loggedIn">Connection</button>
+      <button ion-button clear (click)="logout()" *ngIf="loggedIn">Déconnection</button>
+    </ion-buttons>
+  </ion-toolbar>
+  <script type="text/javascript" src="cordova.js"></script>
+</ion-header>
+
+<ion-content padding>
+  <br />{{ result | json}}
+  <div *ngIf="!loggedIn" text-center padding>Connectez vous pour charger vos Playlists!</div>
+  
+  <ion-list>
+      <button ion-item *ngFor="let item of playlists" (click)="openPlaylist(item)">
+        <ion-avatar item-start *ngIf="item.images.length > 0">
+          <img [src]="item.images[0].url">
+        </ion-avatar>
+        {{ item.name }}
+        <p>Tracks: {{ item.tracks.total }}</p>
+      </button>
+    </ion-list>
+    
+</ion-content>
